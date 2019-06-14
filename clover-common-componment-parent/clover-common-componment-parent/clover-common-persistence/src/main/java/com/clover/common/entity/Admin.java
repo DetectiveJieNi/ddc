@@ -22,49 +22,74 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@TableName("sdk_back_admin")
+@TableName("manager")
 public class Admin extends Model<Admin> {
 
     private static final long serialVersionUID = 1L;
     /**
      * 用户主键
      */
-    @TableId("user_no")
-    private String userNo;
-    /**
-     * 是电话号码，也是账号（登录用）
-     */
-    private String mobile;
+    @TableId("id")
+    private String manageId;
     /**
      * 姓名
      */
-    @TableField("user_name")
-    private String username;
+    @TableField("name")
+    private String manageName;
     /**
      * 密码
      */
-    @TableField("pass_word")
+    @TableField("password")
     private String password;
+
+    private String email;
     /**
-     * 单位
+     * 角色id
      */
-    private String unit;
+    @TableField("role_id")
+    private String roleId;
+
+    private String phone;
+
+    @TableField("insert_time")
+    private String insertTime;
+
+    private Integer sex;
+
+    @TableField("insert_man")
+    private String insertMan;
+
+    @TableField("update_man")
+    private String updateMan;
+
+    @TableField("update_time")
+    private String updateTime;
+
+    private Integer status;
+
+    private Integer delete;
+
+    private String remark;
+
+
+
+
     /**
      * 创建时间
      */
-    @TableField("create_time")
+   /* @TableField("create_time")
     private Long createTime;
     /**
      * 头像
      */
-    private String avatar;
+   /* private String avatar;
     /**
      * 状态值（1：启用，2：禁用，3：删除）
      */
-    private Integer status;
+    /*private Integer status;
     /**
      * 职位
-     */
+
     private String job;
 
 
@@ -72,12 +97,12 @@ public class Admin extends Model<Admin> {
     private String token;
 
     @TableField(exist = false)
-    private String roleName;
+    private String roleName;*/
 
 
     @Override
     protected Serializable pkVal() {
-        return this.userNo;
+        return this.manageId;
     }
 
   public static void main(String[] args) {

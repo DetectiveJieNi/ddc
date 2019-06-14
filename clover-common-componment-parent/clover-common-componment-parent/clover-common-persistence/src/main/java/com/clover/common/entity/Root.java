@@ -1,12 +1,12 @@
 package com.clover.common.entity;
 
-        import com.baomidou.mybatisplus.activerecord.Model;
-        import com.baomidou.mybatisplus.annotations.TableField;
-        import com.baomidou.mybatisplus.annotations.TableId;
-        import com.baomidou.mybatisplus.annotations.TableName;
-        import lombok.*;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import lombok.*;
 
-        import java.io.Serializable;
+import java.io.Serializable;
 
 /**
  * <p>
@@ -22,8 +22,8 @@ package com.clover.common.entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@TableName("role")
-public class Role extends Model<Role> {
+@TableName("root")
+public class Root extends Model<Root> {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,13 +31,21 @@ public class Role extends Model<Role> {
      * 角色名称
      */
     @TableId("id")
-    private String roleId;
+    private String rootId;
 
     /**
      * 角色代号主键
      */
     @TableField("name")
-    private String roleName;
+    private String rootName;
+
+    @TableField("pre_id")
+    private String preId;
+
+    @TableField("root_tag")
+    private String rootTag;
+
+    private Integer level;
 
     @TableField("insert_name")
     private String insertName;
@@ -46,7 +54,7 @@ public class Role extends Model<Role> {
     private String insertTime;
 
     @TableField("update_name")
-    private String updateName;
+    private String updateNname;
 
     @TableField("update_time")
     private String updateTime;
@@ -54,11 +62,10 @@ public class Role extends Model<Role> {
     @TableField("delete_atg")
     private Integer deleteTag;
 
-    private String remark;
-
     @Override
     protected Serializable pkVal() {
-        return this.roleId;
+        return this.rootId;
     }
 
 }
+
